@@ -1,1 +1,26 @@
 # VISUALIZING-THE-DATA-USING-LINE-PLOT-BOX-PLOT-AND-HISTOGRAM-pgm-15
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+np.random.seed(0)
+x = np.arange(0, 10, 0.1)
+y = np.sin(x) + np.random.normal(0, 0.1, len(x))
+data_box = np.random.normal(0, 1, 100)
+data_hist = np.random.randn(1000)
+plt.figure(figsize=(15, 5))
+plt.subplot(1, 3, 1)
+plt.plot(x, y, &#39;b&#39;, label=&#39;Sin with Noise&#39;)
+plt.title(&quot;Line Plot&quot;)
+plt.xlabel(&quot;Time&quot;)
+plt.ylabel(&quot;Amplitude&quot;)
+plt.grid(True)
+plt.subplot(1, 3, 2)
+sns.boxplot(data=data_box, color=&#39;green&#39;)
+plt.title(&quot;Box Plot&quot;)
+plt.subplot(1, 3, 3)
+plt.hist(data_hist, bins=30, color=&#39;purple&#39;, edgecolor=&#39;black&#39;, alpha=0.7)
+plt.title(&quot;Histogram&quot;)
+plt.xlabel(&quot;Value&quot;)
+plt.ylabel(&quot;Frequency&quot;)
+plt.tight_layout()
+plt.show()
